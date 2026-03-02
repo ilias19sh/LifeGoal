@@ -8,13 +8,7 @@ const Stack = createStackNavigator();
 const Router = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator 
-                initialRouteName="Home"
-                screenOptions={{
-                    headerShown: true,
-                    cardStyle: { backgroundColor: '#312c3f', color: '#fff' },
-                }}
-            >
+            <Stack.Navigator>
                 <Stack.Screen name="Home" component={Home} />
             </Stack.Navigator>
         </NavigationContainer>
