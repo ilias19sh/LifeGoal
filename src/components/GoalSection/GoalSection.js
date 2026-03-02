@@ -1,11 +1,12 @@
 import { styles } from './Styles';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { ProgressBar } from './ProgressBar.js';
 
 export const GoalSection = ({ title, progress, creationDate, description, state, onDelete, onUpdate, onStateChange }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.progress}>Progression : {progress}%</Text>
+            <ProgressBar progress={progress} />
             <Text style={styles.date}>Créé le : {creationDate}</Text>
             {description && <Text style={styles.description}>{description}</Text>}
             <Text style={{ color: '#fff', marginTop: 6 }}>État : {state}</Text>
