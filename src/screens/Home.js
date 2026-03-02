@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { Header } from '../components/Header/Header.js';
 import { GoalSection } from "../components/GoalSection/GoalSection.js";
 import { useGoalsContext } from '../context/GoalsContext.js';
 import { LgButton } from '../components/LgButton/LgButton.js';
@@ -11,9 +12,7 @@ export const Home = () => {
 
     return (
         <View style={styles.root}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Mes Objectifs</Text>
-            </View>
+            <Header />
             <View style={styles.addButtonContainer}>
                 <LgButton title="Ajouter un objectif" onPress={() => setIsFormOpen(true)} />
             </View>
