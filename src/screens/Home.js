@@ -7,7 +7,8 @@ import { GoalForm } from '../components/GoalForm/GoalForm.js';
 
 export const Home = () => {
     const [isFormOpen, setIsFormOpen] = useState(false);
-    const { goals } = useGoalsContext();
+    const { goals, deleteGoal, setGoalState, updateGoal } = useGoalsContext();
+
     return (
         <View style={styles.root}>
             <View style={styles.header}>
@@ -18,7 +19,13 @@ export const Home = () => {
             </View>
             <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
                 {goals.map(goal => (
-                    <GoalSection key={goal.id} {...goal} />
+                    <GoalSection
+                        key={goal.id}
+                        {...goal}
+                        onDelete={() => deleteGoal(goal.id)}
+                        onStateChange={state => setGoalState(goal.id, state)}
+                        onUpdate={updates => updateGoal(goal.id, updates)}
+                    />
                 ))}
             </ScrollView>
             {isFormOpen && (
